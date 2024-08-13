@@ -3,7 +3,11 @@
 
 ## Team
 - 인공지능 1, 백엔드 1, 프론트엔드 1
-  - 기획, 디자인, 프론트엔드 개발을 맡았습니다.
+  - UI/UX 디자인, 프론트엔드 개발을 맡았습니다.
+  - 웹사이트 제작 및 키오스크 전시를 위해 반응형으로 제작하였습니다.
+
+## UI
+![Group 1 (1)](https://github.com/user-attachments/assets/12ebd92d-99a6-407b-918c-af96a4c842b3)
 
 ## Tech
 - **Deep-Learning** Object-Detecting
@@ -14,5 +18,3 @@
 ## 기술 개념도
 ![image](https://github.com/user-attachments/assets/7a9e6cb6-c5c6-444f-ba31-e5a10fa0edb7)
 
-## UI
-![Group 1 (1)](https://github.com/user-attachments/assets/12ebd92d-99a6-407b-918c-af96a4c842b3)
