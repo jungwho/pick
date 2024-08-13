@@ -10,3 +10,8 @@
 - **Back-end** Node.js, Express.js
 - **Web-Scrapping** Python
 - **Front-end** Javascript
+
+## 기술 개념도
+![image](https://github.com/user-attachments/assets/7a9e6cb6-c5c6-444f-ba31-e5a10fa0edb7)
+
+## UI
