@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>scan</title>
+    <link href="../../css/recommend/recommend.css" rel="stylesheet"/>
+    <link href="../../css/recommend/season.css" rel="stylesheet"/>
+    <link href="../../css/recommend/scan.css" rel="stylesheet"/>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+</head>
+<body>
+    <!-- logo -->
+    <div class="nav-container">
+        <a class="logo" href="/home">
+            <p>:<span>P</span></p>ICK
+        </a>
+    </div>
+
+    <!-- title -->
+    <div class="title-container" style="margin: 2vw 12vw">  
+        <p>SHOW YOUR <span>STYLE</span>!</p>
+    </div>
+
+    <!-- <div class = recommend-container> -->
+    <div class="canvas-wrapper">
+        <video id="video"></video>
+        <canvas id="output"></canvas>
+        <canvas id="text"></canvas>
+    </div>
+
+    <p class="result">TOP: <span id="text2"></span></p>
+    <p class="result">BOTTOM: <span id="text3"></span></p>
+
+    <div class="previous-container">
+        <a></a>
+        <a class="logo" href="/gender" onclick="movePage()">NEXT</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+    <script>
+        // Wait for the page to load
+        window.addEventListener('load', function() {
+            // Get the canvas element
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+
+            // Set the canvas size
+            const aspectRatio = 2 / 3;
+            const width = window.innerWidth;
+            const height = width / aspectRatio;
+            canvas.width = width;
+            canvas.height = height;
+
+            // Get the video element
+            const video = document.getElementById('video');
+
+            // Variable to track if image has been captured
+            let imageCaptured = false;
+
+            // Capture image after 5 seconds
+            setTimeout(function() {
+            // Check if image has been captured already
+            if (!imageCaptured) {
+                // Draw the video frame on the canvas
+                ctx.drawImage(video, 0, 0, width, height);
+
+                // Convert the canvas image to data URL
+                const dataURL = canvas.toDataURL();
+
+                // Save the data URL to session storage
+                sessionStorage.setItem('capturedImage', dataURL);
+
+                // Set imageCaptured to true to prevent capturing again
+                imageCaptured = true;
+            }
+            }, 8000);
+        });
+        function movePage() {
+            // Get the captured image data URL from session storage
+            const capturedImage = sessionStorage.getItem('capturedImage');
+
+            // Append the captured image data URL as a query parameter to the next page URL
+            const nextPageURL = "../recommend/kiosk_gender.ejs" + "?capturedImage=" + encodeURIComponent(capturedImage);
+
+            // Navigate to the next page with the captured image data URL
+            window.location.href = nextPageURL;
+        }
+
+        // // Wait for the page to load
+        // window.addEventListener('load', function() {
+        //     // Get the canvas element
+        //     const canvas = document.createElement('canvas');
+        //     const ctx = canvas.getContext('2d');
+
+        //     // Set the canvas size
+        //     const aspectRatio = 2 / 3;
+        //     const width = window.innerWidth;
+        //     const height = width / aspectRatio;
+        //     canvas.width = width;
+        //     canvas.height = height;
+
+        //     // Get the video element
+        //     const video = document.getElementById('video');
+
+        //     // Variable to track if image has been captured
+        //     let imageCaptured = false;
+
+        //     // Capture image after 5 seconds
+        //     setTimeout(function() {
+        //         // Check if image has been captured already
+        //         if (!imageCaptured) {
+        //             // Draw the video frame on the canvas
+        //             ctx.drawImage(video, 0, 0, width, height);
+
+        //             // Convert the canvas image to data URL
+        //             const dataURL = canvas.toDataURL();
+
+        //             // Save the data URL to session storage
+        //             sessionStorage.setItem('capturedImage', dataURL);
+
+        //             // Set imageCaptured to true to prevent capturing again
+        //             imageCaptured = true;
+        //         }
+        //     }, 5000);
+        // });
+
+    </script>
+    <script src="../../javascript/recommend_css/scan.js"></script>
+</body>
+</html>

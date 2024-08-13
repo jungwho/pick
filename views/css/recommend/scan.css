@@ -1,0 +1,36 @@
+.canvas-wrapper {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+#video {
+  position: absolute;
+  width: 45%;
+  /* Set to a suitable value */
+  height: 65%;
+  /* Set to a suitable value */
+}
+
+#output {
+  position: absolute;
+  width: 80%;
+  height: 90%;
+  z-index: 1;
+  transform: scaleX(-1);
+}
+
+#text {
+  position: absolute;
+  width: 40%;
+  height: 60%;
+  z-index: 2;
+}
+
+.result {
+  margin-left: 10%;
+  margin-bottom: 10px;
+  font-family: gsL;
+  font-size: 1.75vw;
+}
